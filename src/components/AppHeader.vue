@@ -26,7 +26,7 @@ export default {
                     <h1 class="header-title">Barber Shop</h1>
                     <div class="line"></div>
                     <p class="header-subtitle">The Pinnacle of Male Grooming</p>
-                    <a href="">LEARN MORE</a>
+                    <a class="ms-btn" href="">LEARN MORE</a>
                 </div>
                 <div class="img-content">
                     <img src="../assets/avadabarbers_hero_focalmirror.png" alt="">
@@ -43,66 +43,57 @@ export default {
         height: 100vh;
         background-image: url(../assets/avadabarbers-homepage-hero-bg.jpg);
         background-size: cover;
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem;
 
-        .ms-container-small {
-            width: 65%;
-            margin: 0 auto;
-            
-            .header-top {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 2rem;
-
-                .icons-container {
-                    color: white;
-                    
-                    .fa-bars {
-                        padding-left: 1rem;
-                        font-size: 1.6rem;
-                    }
+            .icons-container {
+                color: white;
+                
+                .fa-bars {
+                    padding-left: 1rem;
+                    font-size: 1.6rem;
                 }
             }
+        }
 
-            .header-bottom {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-                .text-content {
-                    
-                    .header-title {
-                        color: $silver-text;
-                        font-size: 5rem;
-                    }
-
-                    .line {
-                        background-color: $gold-text;
-                        width: 200px;
-                        height: 4px;
-                        margin: 1rem 0;
-                    }
-
-                    .header-subtitle {
-                        color: $grey-text;
-                        font-size: 1.4rem;
-                        margin: 1rem 0;
-                    }
-                    
-                    a {
-                        border: 2px solid $gold-text;
-                        color: $gold-text;
-                        padding: 1rem 1.5rem;
-                        margin: 1rem 0;
-                        display: inline-block;
-                        font-weight: 600;
-                    }
+            .text-content {
+                
+                .header-title {
+                    color: $silver-text;
+                    font-size: 5rem;
+                    font-family: "Abril Fatface";
                 }
-                .img-content {
-                    width: 60vh;
+                
+                .line {
+                    background-color: $gold-text;
+                    width: 200px;
+                    height: 4px;
+                    margin: 1rem 0;
                 }
 
+                .header-subtitle {
+                    color: $grey-text;
+                    font-size: 1.4rem;
+                    margin: 1rem 0;
+                }
+                
+                a {
+                    margin: 1rem 0;
+                }
             }
+            .img-content {
+                width: 60vh;
+            }
+
         }
     }
 </style>
