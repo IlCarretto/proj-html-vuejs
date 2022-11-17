@@ -1,0 +1,19 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "node_modules/@fontsource/montserrat/index.css";
+@import "node_modules/@fontsource/montserrat/500.css";
+@import "node_modules/@fontsource/montserrat/600.css";
+@import "node_modules/@fontsource/montserrat/700.css";
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
