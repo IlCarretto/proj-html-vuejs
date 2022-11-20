@@ -21,6 +21,19 @@ a {
     color: unset;
 }
 
+a:hover {
+    color: unset;
+}
+
+li {
+    list-style-type: none;
+}
+
+.ms-container-xs {
+    width: 55%;
+    margin: 0 auto;
+}
+
 .ms-container-small {
     width: 65%;
     margin: 0 auto;
@@ -31,12 +44,21 @@ a {
     margin: 0 auto;
 }
 
-.ms-btn {
+.ms-btn,
+.ms-btn-small {
     border: 2px solid $gold-text;
     color: $gold-text;
     display: inline-block;
     font-weight: 600;
-    padding: 1rem 1.5rem;
+}
+
+.ms-btn {
+    padding: 1rem 2rem; 
+}
+
+.ms-btn-small {
+    padding: .5rem 1rem;
+    font-size: .8rem;
 }
 
 .gold-subtitle {
@@ -51,6 +73,7 @@ a {
 
 .silver-title {
     color: $silver-text;
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: "Abril Fatface";
+    margin-bottom: 3rem;
 }

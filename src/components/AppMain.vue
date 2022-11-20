@@ -65,8 +65,36 @@ export default {
                     src: "avadabarbers-trimcut-gallery3.jpg",
                     title: "Mark Wilson"
                 }
-            ]
+            ],
+            blogs: [
+                {
+                    src: "avadabarbers-second-blog-320x202.jpg",
+                    title: "Avada Barbers Now Open",
+                    subtitle: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur facilis necessitatibus blanditiis veniam magnam amet assumenda"
+                },
+                {
+                    src: "avadabarbers-choosing-blog-320x202.jpg",
+                    title: "Choosing The Right Barber",
+                    subtitle: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur facilis necessitatibus blanditiis veniam magnam amet assumenda"
+                },
+                {
+                    src: "avadabarbers-ourservice-blog-320x202.jpg",
+                    title: "Quick Service Guide",
+                    subtitle: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur facilis necessitatibus blanditiis veniam magnam amet assumenda"
+                }
+            ],
+            info: ["Avada Barbers", "123 New York Street", "New York City", "info@yourwebsite.com", "+1 (555) 555-1212"],
+            socials: ["fa-brands fa-facebook-f", "fa-brands fa-twitter", "fa-brands fa-youtube", "fa-brands fa-instagram"],
+            credits: ["Copyright 2012 - 2020 |", "Avada Theme by ThemeFusion |", "All Rights Reserved |", "Powered by WordPress"]
         }
+    },
+    methods: {
+        getImgUrl(imgName) {
+            return new URL(`../assets/${imgName}`, import.meta.url).href;
+        }
+    },
+    created() {
+        // console.log(this.actions[1].lists[0].info);
     }
 }
 </script>
@@ -84,7 +112,7 @@ export default {
         <!-- /AWARD SECTION -->
 
         <!-- SERVICES SECTION -->
-        <section class="services text-center">
+        <section class="services text-center p-5">
             <div class="ms-container-small">
                 <h4 class="gold-subtitle">MENS GROOMING</h4>
                 <h2 class="silver-title">Services</h2>
@@ -129,7 +157,7 @@ export default {
         <!-- /PRODUCTS SECTION -->
 
         <!-- REVIEWS SECTION -->
-        <section class="review text-center">
+        <section class="review text-center p-5">
             <div class="ms-container-small">
                 <h4 class="gold-subtitle">WHAT PEOPLE SAY</h4>
                 <h2 class="silver-title">Reviews</h2>
@@ -139,6 +167,61 @@ export default {
             </div>
         </section>
         <!-- /REVIEWS SECTION -->
+
+        <!-- BLOG SECTION -->
+        <section class="blog text-center">
+            <div class="ms-container-small">
+                <h4 class="gold-subtitle">TALES FROM THE BARBER SHOP</h4>
+                <h2 class="silver-title">Recent Blog Posts</h2>
+                <div class="row row-cols-3">
+                    <AppCard v-for="(blog, index) in blogs" id="index" :imgSrc="blog.src" :title="blog.title" :subtitle="blog.subtitle"/>
+                </div>
+                <a class="blog-btn ms-btn" href="">READ MORE FROM OUR BLOG</a>
+            </div>
+        </section>
+        <!-- /BLOG SECTION -->
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-top text-center">
+                <div class="ms-container-xs">
+                    <div class="row row-cols-3">
+                        <div class="col">
+                            <div class="inner-col">
+                                <img src="../assets/avadabarbers_footer_shop_image.png" alt="">
+                                <a class="ms-btn-small" href="">SHOP OUR RANGE NOW</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="../assets/avadabarbers-logo-x1.png" alt="">
+                            <ul class="info-list">
+                                <li v-for="(singleInfo, index) in info">
+                                    {{singleInfo}}
+                                </li>
+                            </ul>
+                            <h4 class="gold-subtitle">FOLLOW US</h4>
+                            <ul class="socials-list">
+                                <li v-for="(social, index) in socials">
+                                    <i :class="social"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <div class="inner-col">
+                                <img src="../assets/avadabarbers_footer_appointment_image.png" alt="">
+                                <a class="ms-btn-small" href="">BOOK YOUR APPOINTMENT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="credits">
+                    <p v-for="(credit, index) in credits">{{credit}}</p>
+                </div>
+            </div>
+        </footer>
+        <!-- /FOOTER -->
     </main>
 </template>
 
@@ -152,6 +235,7 @@ export default {
             height: 500px;
             background-image: url(../assets/avadabarbers-about-introbackground.jpg);
             background-size: cover;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 85%, 0 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -166,11 +250,15 @@ export default {
         }
         // /AWARD SECTION
 
+        // SERVICES SECTION
+        // /SERVICES SECTION
+
         // PRODUCTS SECTION
         .products {
             background-image: url(../assets/avadabarbers-reviewsbackground.jpg);
             background-size: cover;
             background-position: center;
+            clip-path: polygon(0 10%, 50% 0, 100% 10%, 100% 100%, 50% 100%, 0 100%);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -202,5 +290,38 @@ export default {
             }
         }
         // /PRODUCTS SECTION
+
+        // BLOG SECTION
+        .blog {
+            background-color: #f5f5f5;
+            clip-path: polygon(0 0, 50% 10%, 100% 0, 100% 100%, 50% 100%, 0 100%);
+            padding: 8rem;
+        }
+        // /BLOG SECTION
+
+        // FOOTER TOP
+        .footer-top {
+            padding: 3rem;
+            background-color: $bg-black-2;
+            color: $grey-text;
+
+            .socials-list {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        .footer-bottom {
+            background-color: #161718;
+
+            padding: 3rem;
+
+            .credits {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $grey-text;
+            }
+        }
     }
 </style>
